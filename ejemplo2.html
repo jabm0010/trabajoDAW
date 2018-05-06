@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Record Audio Test</title>
+    </head>
+    <body><audio id="player" controls></audio>
+        <script>
+            var player = document.getElementById('player');
+
+            var handleSuccess = function (stream) {
+                if (window.URL) {
+                    player.src = window.URL.createObjectURL(stream);
+                } else {
+                    player.src = stream;
+                }
+            };
+
+            navigator.mediaDevices.getUserMedia({audio: true, video: false})
+                    .then(handleSuccess)
+        </script>
+</html>
