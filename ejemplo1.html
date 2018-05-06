@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Ejemplo1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    </head>
+
+    <style>
+        .image-upload > input
+        {
+            display: none;
+        }
+        .image-upload img
+        {
+            width: 40px;
+            cursor: pointer;
+            style:"float:right";
+        }
+    </style>
+    <body>
+
+
+        <div class="row">
+            <div class="col-sm">
+
+            </div>
+            <div class="col-sm">
+                <div class="card">
+                    <img class="card-img-top" id="frame" height="400" alt="Imagen de perfil">
+                    <div class="card-body">
+                        <h5 class="card-title">Usuario</h5>
+                        <p class="card-text">Biografía</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Número de amigos</li>
+
+                    </ul>
+                    <div class="card-body">
+                       
+                        <div class="image-upload">
+                             <button type="button" class="btn btn-primary">Configurar perfil</button>
+                            <label for="camera">
+                                <img src="https://bit.ly/2fSnitK" />
+
+                            </label>
+
+                            <input id="camera" type="file"  accept="image/*" />
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+
+            </div>
+
+        </div>
+
+    </body>
+</html>
+<script>
+    var camera = document.getElementById('camera');
+    var frame = document.getElementById('frame');
+    
+    camera.addEventListener('change', function (e) {
+        var file = e.target.files[0];
+        // Do something with the image file.
+        frame.src = URL.createObjectURL(file);
+       
+    });
+</script>
